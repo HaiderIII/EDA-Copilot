@@ -1,0 +1,237 @@
+# ASAP7 PDK Design Rule Manual (Simulated)
+# Version: 1.0
+# Last Updated: 2024-01
+
+================================================================================
+METAL1 (M1) RULES
+================================================================================
+
+M1.W.1 - Minimum Width
+Layer: Metal1
+Value: 18nm
+Description: All Metal1 shapes must have a minimum width of 18nm. This applies to all routing and pin shapes on the Metal1 layer.
+
+---
+
+M1.S.1 - Minimum Spacing
+Layer: Metal1
+Value: 18nm
+Description: Minimum spacing between two Metal1 shapes is 18nm. This rule applies to all adjacent Metal1 geometries regardless of their function.
+
+---
+
+M1.S.2 - Wide Metal Spacing
+Layer: Metal1
+Value: 27nm
+Condition: When width >= 50nm
+Description: Metal1 shapes wider than 50nm require increased spacing of 27nm to adjacent Metal1 shapes.
+
+---
+
+M1.A.1 - Minimum Area
+Layer: Metal1
+Value: 0.00202um²
+Description: All Metal1 shapes must have a minimum area of 0.00202um² to ensure manufacturability and avoid small floating metal.
+
+---
+
+M1.E.1 - Extension Past Via
+Layer: Metal1
+Value: 5nm
+Description: Metal1 must extend at least 5nm beyond the edge of VIA1 on all sides for proper via enclosure.
+
+================================================================================
+METAL2 (M2) RULES
+================================================================================
+
+M2.W.1 - Minimum Width
+Layer: Metal2
+Value: 18nm
+Description: All Metal2 shapes must have a minimum width of 18nm.
+
+---
+
+M2.S.1 - Minimum Spacing
+Layer: Metal2
+Value: 18nm
+Description: Minimum spacing between two Metal2 shapes is 18nm.
+
+---
+
+M2.S.2 - Wide Metal Spacing
+Layer: Metal2
+Value: 27nm
+Condition: When width >= 50nm
+Description: Metal2 shapes wider than 50nm require increased spacing of 27nm.
+
+---
+
+M2.A.1 - Minimum Area
+Layer: Metal2
+Value: 0.00202um²
+Description: All Metal2 shapes must have a minimum area of 0.00202um².
+
+---
+
+M2.E.1 - Extension Past Via
+Layer: Metal2
+Value: 5nm
+Description: Metal2 must extend at least 5nm beyond the edge of VIA1 (below) and VIA2 (above).
+
+================================================================================
+VIA1 RULES
+================================================================================
+
+VIA1.W.1 - Via Size
+Layer: VIA1
+Value: 18nm x 18nm
+Description: VIA1 must be exactly 18nm x 18nm square. Non-square vias are not permitted.
+
+---
+
+VIA1.S.1 - Minimum Spacing
+Layer: VIA1
+Value: 21nm
+Description: Minimum spacing between two VIA1 shapes is 21nm (edge to edge).
+
+---
+
+VIA1.A.1 - Via Array Spacing
+Layer: VIA1
+Value: 25nm
+Condition: Arrays of 2x2 or larger
+Description: When placing via arrays (2x2 or larger), the via-to-via spacing within the array must be 25nm.
+
+---
+
+VIA1.E.1 - Metal Enclosure
+Layer: VIA1
+Value: 5nm (all sides)
+Description: Both Metal1 (below) and Metal2 (above) must enclose VIA1 by at least 5nm on all sides.
+
+================================================================================
+POLY RULES
+================================================================================
+
+POLY.W.1 - Minimum Width
+Layer: Poly
+Value: 14nm
+Description: Minimum width for polysilicon gate is 14nm. This defines the minimum transistor gate length.
+
+---
+
+POLY.S.1 - Minimum Spacing
+Layer: Poly
+Value: 21nm
+Description: Minimum spacing between two Poly shapes is 21nm.
+
+---
+
+POLY.S.2 - Poly to Active Spacing
+Layer: Poly
+Value: 14nm
+Description: Minimum spacing from Poly edge to Active (diffusion) edge is 14nm when Poly is not crossing Active.
+
+---
+
+POLY.E.1 - Gate Extension
+Layer: Poly
+Value: 10nm
+Description: Poly gate must extend at least 10nm beyond the Active region on both sides.
+
+---
+
+POLY.E.2 - Poly Endcap
+Layer: Poly
+Value: 7nm
+Description: Poly must extend at least 7nm past the last contacted gate position.
+
+================================================================================
+ACTIVE (DIFFUSION) RULES
+================================================================================
+
+ACT.W.1 - Minimum Width
+Layer: Active
+Value: 18nm
+Description: Minimum width for Active (diffusion) region is 18nm.
+
+---
+
+ACT.S.1 - Minimum Spacing
+Layer: Active
+Value: 25nm
+Description: Minimum spacing between two Active regions is 25nm.
+
+---
+
+ACT.S.2 - Active to Well Edge
+Layer: Active
+Value: 36nm
+Description: Active region must be at least 36nm from the well edge.
+
+---
+
+ACT.A.1 - Minimum Area
+Layer: Active
+Value: 0.00108um²
+Description: All Active regions must have a minimum area of 0.00108um².
+
+================================================================================
+NWELL RULES
+================================================================================
+
+NWELL.W.1 - Minimum Width
+Layer: NWELL
+Value: 72nm
+Description: Minimum width for NWELL is 72nm.
+
+---
+
+NWELL.S.1 - Minimum Spacing
+Layer: NWELL
+Value: 72nm
+Description: Minimum spacing between two separate NWELL regions is 72nm.
+
+---
+
+NWELL.E.1 - PMOS Enclosure
+Layer: NWELL
+Value: 36nm
+Description: NWELL must enclose PMOS Active by at least 36nm on all sides.
+
+================================================================================
+CONTACT RULES
+================================================================================
+
+CT.W.1 - Contact Size
+Layer: Contact
+Value: 18nm x 18nm
+Description: Contact must be exactly 18nm x 18nm square.
+
+---
+
+CT.S.1 - Minimum Spacing
+Layer: Contact
+Value: 21nm
+Description: Minimum spacing between two Contact shapes is 21nm.
+
+---
+
+CT.E.1 - Active Enclosure
+Layer: Contact
+Value: 5nm
+Description: Active must enclose Contact by at least 5nm on all sides.
+
+---
+
+CT.E.2 - Poly Enclosure
+Layer: Contact
+Value: 5nm
+Description: Poly must enclose Contact by at least 5nm on all sides (for poly contacts).
+
+---
+
+CT.E.3 - Metal1 Enclosure
+Layer: Contact
+Value: 5nm
+Description: Metal1 must enclose Contact by at least 5nm on all sides.

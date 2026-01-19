@@ -1,0 +1,18 @@
+# EDA Copilot - Dependencies
+# Install with: pip install -r requirements.txt
+
+# Core LLM
+anthropic>=0.40.0          # Claude API client
+
+# RAG components
+chromadb>=0.4.0            # Vector database for embeddings
+sentence-transformers>=2.2.0  # Local embeddings (optional, free)
+
+# Utilities
+python-dotenv>=1.0.0       # Environment variable management
+rich>=13.0.0               # Beautiful terminal output
+typer>=0.9.0               # CLI framework
+
+# Development
+pytest>=7.0.0              # Testing
+black>=23.0.0              # Code formatting
